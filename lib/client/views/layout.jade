@@ -1,0 +1,50 @@
+html(ng-app='axl.ui')
+  head
+    title Axl Package Manager
+    link( rel="stylesheet",
+          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    link( rel="stylesheet",
+          href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css")
+
+  body
+    header
+      nav.navbar.navbar-inverse(ng-controller="NavBarController")
+        div.container
+          div.navbar-header
+            a.navbar-brand(href="/")
+              img(src="//s3.amazonaws.com/axl-test/images/axl.png",
+                  style="height: 50px; margin-top: -15px")
+
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="#")
+                i.fa.fa-home
+                | &nbsp;Home
+            li(ng-if="!user.data.username")
+              a(href="/auth/twitter")
+                i.fa.fa-lock
+                | &nbsp;Log In
+            li(ng-if="user.data.username")
+              a(href="#/projects")
+                i.fa.fa-flask
+                | &nbsp;My Projects
+            li(ng-if="user.data.username")
+              a(href="#/upload")
+                i.fa.fa-tags
+                | &nbsp;New Release
+            li.dropdown(ng-if="user.data.username")
+              a.dropdown-toggle(style="cursor: pointer", data-toggle="dropdown")
+                i.fa.fa-user
+                | &nbsp;{{ user.data.username }}
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href="/logout")
+                    | Logout
+
+    block content
+      div(ng-view="true")
+
+    script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+    script(type="text/javascript", src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
+    script(type="text/javascript", src="#{getJSPath('/ui.js')}")

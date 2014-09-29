@@ -1,0 +1,13 @@
+div.container
+  h1 {{project.name}}
+  hr
+  div
+    b Maintainers: &nbsp;
+    div(ng-repeat="maintainer in project.data.maintainers")
+      | {{maintainer.username}}
+  div
+    b(ng-if="project.releases.length > 0")
+      | Latest Release: {{project.releases[project.releases.length - 1]}}
+  div
+    b Downloads: &nbsp;
+      | {{ project.downloadsCount }}

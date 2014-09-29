@@ -1,0 +1,1 @@
+<div class="container">Project:&nbsp;<select ng-options="project.name as project.name for project in projects.projects" ng-model="project"></select><br/>Version:&nbsp;<input type="text" ng-model="version"/><br/>Tarball:&nbsp;<input type="file" file-model="myFile"/><hr/><input type="button" value="Upload" ng-click="upload()"/></div>
