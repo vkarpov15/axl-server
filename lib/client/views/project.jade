@@ -11,3 +11,7 @@ div.container
   div
     b Downloads: &nbsp;
       | {{ project.downloadsCount }}
+  div(ng-if="project.releases.length > 0")
+    div(ng-repeat="release in releases")
+      a(ng-href="release.download")
+        | {{release.version}} released on {{release.createdAt | date:'yyyyMMdd'}}

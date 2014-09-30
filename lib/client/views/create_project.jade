@@ -1,0 +1,16 @@
+div.container(ng-controller="CreateProjectController")
+  h1 Create a Project
+  h2 Name
+  input(type="text", ng-model="project.name")
+  h2 Maintainers
+  div(ng-repeat="maintainer in project.data.maintainers")
+    | {{maintainer.username}}
+  input(type="text", ng-model="newMaintainer")
+  input(type="submit", ng-click="addMaintainer(newMaintainer); newMaintainer = '';")
+  h2 Keywords
+  div(ng-repeat="keyword in project.data.keywords")
+    | {{keyword}}
+  input(type="text", ng-model="newKeyword")
+  input(type="submit", ng-click="project.data.keywords.push(newKeyword); newKeyword = '';")
+  h2 Submit
+  button.btn(ng-click="save()") Save
