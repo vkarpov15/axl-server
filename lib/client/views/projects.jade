@@ -4,7 +4,7 @@ div.container
       | New Project
   div.row.my-project(ng-repeat="project in projects.projects")
     h2
-      a(ng-href="#/project?name={{encodeURIComponent(project.name)}}")
+      a.project-name(ng-href="#/project?name={{encodeURIComponent(project.name)}}")
         | {{project.name}}
     em(ng-if="project.releases.length > 0")
       | Latest Release: {{project.releases[project.releases.length - 1]}}

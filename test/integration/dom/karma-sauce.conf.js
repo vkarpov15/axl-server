@@ -5,18 +5,18 @@ module.exports = function(config) {
       browserName: 'chrome',
       version: '35'
     },
-    /*sl_safari: {
+    sl_safari: {
       base: 'SauceLabs',
       browserName: 'safari',
       platform: 'OS X 10.6',
       version: '5'
     },
-    sl_ie_9: {
+    sl_ie_10: {
       base: 'SauceLabs',
       browserName: 'internet explorer',
       platform: 'Windows 8',
       version: '10'
-    }*/
+    }
   };
 
   config.set({
@@ -33,6 +33,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       './project.test.js',
+      './dsl.js'
     ],
 
     // test results reporter to use
