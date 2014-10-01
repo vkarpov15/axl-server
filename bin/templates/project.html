@@ -1,2 +1,0 @@
-<div class="container"><h1>{{project.name}}</h1><hr/><div><b>Maintainers: &nbsp;</b><div ng-repeat="maintainer in project.data.maintainers">{{maintainer.username}}</div></div><div><b ng-if="project.releases.length &gt; 0">Latest Release: {{project.releases[project.releases.length - 1]}}</b></div><div><b>Downloads: &nbsp;
-{{ project.downloadsCount }}</b></div><div ng-if="project.releases.length &gt; 0"><div ng-repeat="release in releases"><a ng-href="release.download">{{release.version}} released on {{release.createdAt | date:'yyyyMMdd'}}</a></div></div></div>
