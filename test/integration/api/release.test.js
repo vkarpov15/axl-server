@@ -64,7 +64,9 @@ describe('REST API', function() {
         function(error) {
           assert.ifError(error);
 
-          request.get('http://localhost:3000/api/release?project=mongo-sanitize&version=1.0.0', function(e, r, body) {
+          var url = 'http://localhost:3000/api/release?' +
+            'project=mongo-sanitize&version=1.0.0';
+          request.get(url, function(e, r, body) {
             assert.ifError(e);
             var obj = JSON.parse(body);
             assert.equal('1.0.0', obj.release.version);
@@ -91,7 +93,9 @@ describe('REST API', function() {
         function(error) {
           assert.ifError(error);
 
-          request.get('http://localhost:3000/api/release?project=mongo-sanitize&version=1.0.0', function(e, r, body) {
+          var url = 'http://localhost:3000/api/release?' +
+            'project=mongo-sanitize&version=1.0.0';
+          request.get(url, function(e, r, body) {
             assert.ifError(e);
             var obj = JSON.parse(body);
             assert.equal('1.0.0', obj.release.version);
@@ -125,8 +129,8 @@ describe('REST API', function() {
           assert.ifError(error);
 
           var v = encodeURIComponent('~1.0');
-          var url = 'http://localhost:3000/api/release?project=mongo-sanitize' +
-            '&version=' + v;
+          var url = 'http://localhost:3000/api/release?' +
+            'project=mongo-sanitize&version=' + v;
           request.get(url, function(e, r, body) {
             assert.ifError(e);
             var obj = JSON.parse(body);
@@ -145,8 +149,8 @@ describe('REST API', function() {
       };
       Project.create(project, function(error) {
         assert.ifError(error);
-        var url = 'http://localhost:3000/api/release?project=mongo-sanitize&' +
-          'version=1.0.0';
+        var url = 'http://localhost:3000/api/release?' +
+          'project=mongo-sanitize&version=1.0.0';
         var size = fs.statSync('test/integration/api/test.go.tgz').size;
         var writeStream = request.post({ url: url, headers: { 'Content-Length': size } });
         var readStream = fs.createReadStream('test/integration/api/test.go.tgz');
@@ -193,7 +197,9 @@ describe('REST API', function() {
           function(error) {
             assert.ifError(error);
 
-            request.post('http://localhost:3000/api/release?project=mongo-sanitize&version=1.0.0', function(e, r, body) {
+            var url = 'http://localhost:3000/api/release?' +
+              'project=mongo-sanitize&version=1.0.0';
+            request.post(url, function(e, r, body) {
               assert.ifError(e);
               var obj = JSON.parse(body);
               assert.equal(status.CONFLICT, r.statusCode);
