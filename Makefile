@@ -21,7 +21,7 @@ dom-test-local:
 	./node_modules/karma/bin/karma start ./test/integration/dom/karma-local.conf.js
 
 dom-test-server:
-	node lib/server/app.js --config ./test/integration/dom/axl.test.config.yml
+	env CONFIG=./test/integration/dom/axl.test.config.yml node lib/server/app.js
 
 client:
 	mkdir -p ./bin/javascript

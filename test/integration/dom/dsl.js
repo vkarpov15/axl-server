@@ -1,7 +1,7 @@
 angular.scenario.dsl('api', function() {
-  return function(verb, path, response, callback) {
+  return function(verb, path, response) {
     return this.addFutureAction('tweaking api', function(window, document, done) {
-      window.axlAPI.intercept(verb, path, response, callback);
+      window.axlAPI.intercept(verb, path, response);
       done();
     });
   };

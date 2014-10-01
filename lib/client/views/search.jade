@@ -1,0 +1,19 @@
+div.container
+  div(style="text-align: center")
+    h1 Search
+    form(ng-submit="search(q)")
+      input(type="text",
+            ng-model="q",
+            placeholder="Search",
+            style="width: 400px")
+      button.btn#search-button(type="submit") Search
+
+  hr
+  div(ng-if="loading")
+    em Loading...
+  div(ng-if="init && !loading && results.length === 0")
+    em No Results
+  div.search-result(ng-repeat="result in results")
+    a(ng-href="#/project?name={{encodeURIComponent(result.name)}}")
+      b.search-result-name {{result.name}}
+      em {{result.keywords.join(', ')}}

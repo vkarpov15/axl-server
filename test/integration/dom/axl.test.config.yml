@@ -4,3 +4,7 @@ templates:
   local: true
 angular:
   mockBackend: true
+twitter:
+  key: WuRaW3CnDzZBGzh4vDcrXzoS7
+  secret: uUKXdJiRDJu5RIdba8GCmOxZzx5lbOFTbY7PPAu4tkaxVg34ou
+  callback: http://localhost:3000/auth/twitter/return

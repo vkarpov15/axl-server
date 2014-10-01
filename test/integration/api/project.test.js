@@ -44,7 +44,7 @@ describe('Search API', function() {
     done();
   });
 
-  it('should be able to sort by score', function(done) {
+  it('should be able to get search results', function(done) {
     Project.create(
       { name: 'test' },
       { name: 'mocha', data: { keywords: ['testing'] } },
