@@ -10,6 +10,7 @@
     "body-parser": "1.9.0",
     "commander": "2.3.0",
     "cookie-parser": "1.3.3",
+    "event-emitter": "0.3.1",
     "express": "4.9.5",
     "express-session": "1.8.2",
     "http-status": "0.1.7",
@@ -29,6 +30,11 @@
   "devDependencies": {
     "angular": "1.2.16",
     "browserify": "3.44.2",
+    "karma": "0.12.16",
+    "karma-mocha": "0.1.4",
+    "karma-ng-scenario": "0.1.0",
+    "karma-chrome-launcher": "0.1.4",
+    "karma-sauce-launcher": "0.2.8",
     "mocha": "1.18.2",
     "istanbul": "0.3.2"
   },

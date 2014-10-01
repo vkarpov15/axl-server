@@ -1,0 +1,14 @@
+extends layout
+
+block stylesheets
+  
+
+block scripts
+  script( type="text/javascript",
+          src="#{getJSPath('/ui.js')}")
+  script(type="text/javascript").
+    // define our fake backend
+    axlUI.run(function($api) {
+      $api.intercept('get', '/api/me', { user: { username: 'vkarpov15' } });
+      $api.intercept('get', '/api/popular/month', {});
+    });

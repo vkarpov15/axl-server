@@ -2,7 +2,7 @@ div.container
   button.btn
     a(ng-href="#/projects/new")
       | New Project
-  div.row(ng-repeat="project in projects.projects")
+  div.row.my-project(ng-repeat="project in projects.projects")
     h2
       a(ng-href="#/project?name={{encodeURIComponent(project.name)}}")
         | {{project.name}}

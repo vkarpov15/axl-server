@@ -1,0 +1,6 @@
+js:
+  local: true
+templates:
+  local: true
+angular:
+  mockBackend: true

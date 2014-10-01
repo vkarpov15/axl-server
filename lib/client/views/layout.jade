@@ -1,10 +1,11 @@
 html(ng-app='axl.ui')
   head
     title Axl Package Manager
-    link( rel="stylesheet",
-          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
-    link( rel="stylesheet",
-          href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css")
+    block stylesheets
+      link( rel="stylesheet",
+            href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+      link( rel="stylesheet",
+            href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css")
 
   body
     header
@@ -12,7 +13,7 @@ html(ng-app='axl.ui')
         div.container
           div.navbar-header
             a.navbar-brand(href="/")
-              img(src="//s3.amazonaws.com/axl-test/images/axl.png",
+              img(src="//s3.amazonaws.com/axl-test/images/axl.jpg",
                   style="height: 50px; margin-top: -15px")
 
           ul.nav.navbar-nav.navbar-right
@@ -35,7 +36,7 @@ html(ng-app='axl.ui')
             li.dropdown(ng-if="user.data.username")
               a.dropdown-toggle(style="cursor: pointer", data-toggle="dropdown")
                 i.fa.fa-user
-                | &nbsp;{{ user.data.username }}
+                span#username &nbsp;{{ user.data.username }}
                 b.caret
               ul.dropdown-menu
                 li
@@ -45,6 +46,10 @@ html(ng-app='axl.ui')
     block content
       div(ng-view="true")
 
-    script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
-    script(type="text/javascript", src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
-    script(type="text/javascript", src="#{getJSPath('/ui.js')}")
+    block scripts
+      script( type="text/javascript",
+              src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+      script( type="text/javascript",
+              src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
+      script( type="text/javascript",
+              src="#{getJSPath('/ui.js')}")
