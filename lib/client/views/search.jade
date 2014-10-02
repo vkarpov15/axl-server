@@ -16,4 +16,5 @@ div.container
   div.search-result(ng-repeat="result in results")
     a(ng-href="#/project?name={{encodeURIComponent(result.name)}}")
       b.search-result-name {{result.name}}
+      | {{project.data.description}}
       em {{result.keywords.join(', ')}}

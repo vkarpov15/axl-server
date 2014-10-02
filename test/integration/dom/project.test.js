@@ -38,6 +38,7 @@ describe('Creating a project', function() {
       });
 
     input('project.name').enter('mongo-tool');
+    input('project.data.description').enter('This is a test');
     input('newMaintainer').enter('vkarpov15');
     element('#add-maintainer').click();
     expect(repeater('.maintainer').count()).toBe(1);
@@ -60,5 +61,7 @@ describe('Creating a project', function() {
     expect(apiPosted('path', '0.data.keywords.0')).toEqual('mongo');
     expect(apiPosted('path', '0.data.maintainers.0.username')).
       toEqual('vkarpov15');
+    expect(apiPosted('path', '0.data.description')).
+      toEqual('This is a test');
   });
 });

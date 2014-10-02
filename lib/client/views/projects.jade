@@ -6,5 +6,6 @@ div.container
     h2
       a.project-name(ng-href="#/project?name={{encodeURIComponent(project.name)}}")
         | {{project.name}}
+    | {{project.data.description}}
     em(ng-if="project.releases.length > 0")
       | Latest Release: {{project.releases[project.releases.length - 1]}}

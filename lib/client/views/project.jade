@@ -2,6 +2,9 @@ div.container
   h1 {{project.name}}
   hr
   div
+    b Description
+    div {{project.data.description}}
+  div
     b Maintainers: &nbsp;
     div(ng-repeat="maintainer in project.data.maintainers")
       | {{maintainer.username}}

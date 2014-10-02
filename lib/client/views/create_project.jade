@@ -2,6 +2,8 @@ div.container(ng-controller="CreateProjectController")
   h1 Create a Project
   h2 Name
   input(type="text", ng-model="project.name")
+  h2 Description
+  input(type="text", ng-model="project.data.description")
   h2 Maintainers
   div.maintainer(ng-repeat="maintainer in project.data.maintainers")
     | {{maintainer.username}}
