@@ -1,18 +1,20 @@
 {
   "name": "axl-server",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "description": "",
   "main": "./lib/server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "async": "0.9.0",
     "body-parser": "1.9.0",
     "commander": "2.3.0",
     "cookie-parser": "1.3.3",
     "event-emitter": "0.3.1",
     "express": "4.9.5",
     "express-session": "1.8.2",
+    "forever": "0.11.1",
     "http-status": "0.1.7",
     "jade": "1.1.5",
     "js-yaml": "3.2.1",
@@ -30,6 +32,8 @@
   "devDependencies": {
     "angular": "1.2.16",
     "browserify": "3.44.2",
+    "gulp": "3.8.8",
+    "gulp-uglify": "1.0.1",
     "karma": "0.12.16",
     "karma-mocha": "0.1.4",
     "karma-ng-scenario": "0.1.0",
