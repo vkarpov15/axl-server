@@ -5,6 +5,8 @@ block stylesheets
     // No stylesheets  
 
 block scripts
+  script( type="text/javascript").
+    window.templateBasePath = '#{getTemplateBasePath()}';
   script( type="text/javascript",
           src="#{getJSPath('/ui.js')}")
   script(type="text/javascript").
