@@ -5,9 +5,6 @@ BROWSERIFY=./node_modules/browserify/bin/cmd.js
 api-test:
 	env NODE_PATH=./ $(MOCHA) ./test/integration/api/*.test.js
 
-api-test-coverage:
-	env NODE_PATH=./ $(ISTANBUL) cover $(MOCHA) ./test/integration/api/*.test.js
-
 dom-test-sauce:
 	make client
 	mkdir -p ./bin/templates
