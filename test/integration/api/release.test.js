@@ -152,21 +152,28 @@ describe('REST API', function() {
         var url = 'http://localhost:3000/api/release?' +
           'project=mongo-sanitize&version=1.0.0';
         var size = fs.statSync('test/integration/api/test.go.tgz').size;
-        var writeStream = request.post({ url: url, headers: { 'Content-Length': size } });
-        var readStream = fs.createReadStream('test/integration/api/test.go.tgz');
+        var writeStream = request.post({
+          url: url,
+          headers: { 'Content-Length': size }
+        });
+        var readStream = fs.createReadStream(
+          'test/integration/api/test.go.tgz');
         readStream.pipe(writeStream);
         writeStream.on('response', function(data) {
-          Project.findOne({ name: 'mongo-sanitize' }, function(error, project) {
-            assert.ifError(error);
-            assert.ok(!!project);
-            assert.equal(1, project.releases.length);
-            Release.findOne({ project: 'mongo-sanitize', version: '1.0.0' }, function(error, release) {
+          Project.findOne({ name: 'mongo-sanitize' },
+            function(error, project) {
               assert.ifError(error);
-              assert.ok(!!release);
-              assert.ok(release.download.indexOf('cloudfront') != -1);
+              assert.ok(!!project);
+              assert.equal(1, project.releases.length);
+              Release.findOne(
+                { project: 'mongo-sanitize', version: '1.0.0' },
+                function(error, release) {
+                  assert.ifError(error);
+                  assert.ok(!!release);
+                  assert.ok(release.download.indexOf('cloudfront') != -1);
+                });
+              done();
             });
-            done();
-          });
         });
         writeStream.on('error', function(error) {
           assert.ifError(error);
